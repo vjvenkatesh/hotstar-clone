@@ -9,6 +9,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Login from './components/Login';
 
 
 function App() {
@@ -17,6 +18,9 @@ function App() {
       <Router>
         <Header />
         <Sw>
+          <Route path="/login" >
+            <Login />
+          </Route>
           <Route path="/details">
               <Details />
           </Route>  

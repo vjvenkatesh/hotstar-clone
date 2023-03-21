@@ -71,6 +71,7 @@ opacity:0.8;
 
 const Imagetitle = styled.div`
 
+    margin-top:60px;
     min-height:170px;
     min-width:200px;
     height:30vh;
@@ -155,5 +156,6 @@ const Description = styled.div  `
     font-size:20px;
     margin-top:16px;
     color:rgb(249, 249, 249);
+    max-width:760px;
 
 `
