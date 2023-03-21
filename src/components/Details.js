@@ -31,7 +31,14 @@ function Details() {
                     <img src='/images/group-icon.png'/>
 
                 </GroupWatchButton>
+
             </Controls>
+            <SubTitle>
+                2018 * 7m * Family, Fantasy, Kids, Animation
+            </SubTitle>
+            <Description>
+               Shi's mom helped out behind the scenes "Neiman-Cobb says, so Shi's own mother was enlisted to teach the artists how to make dumplings from scratch.
+            </Description>
         </Container>
     )
 }
@@ -134,3 +141,19 @@ const GroupWatchButton = styled(AddButton)`
      background:rgba(0,0,0)
 `
 
+
+
+const SubTitle =styled.div`
+color:rgb(249, 249, 249);
+font-size:15px;
+min-height: 20px;
+margin-top:26px;
+
+`
+const Description = styled.div  `
+    line-height : 1.4;
+    font-size:20px;
+    margin-top:16px;
+    color:rgb(249, 249, 249);
+
+`
