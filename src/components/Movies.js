@@ -1,14 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
+import { selectMovies } from '../features/movie/movieSlice'
+import { useSelector } from 'react-redux'
+
+
+
+
 
 function Movies() {
+
+    const movies=useSelector(selectMovies);
+     movies.map((movie)=>{
+        // console.log("one by one",movie.backgroundImg);
+    });
+
   return (
     <Container>
         <h4>Recommended for you</h4>
         <Content>
-            <Wrap>
-                <img src='/images/login-background.jpg'/>
-            </Wrap>
+            { movies &&
+                movies.map((movie)=>(
+                    <Wrap key={movie.id}>
+                        <img src={movie.backgroundImg}/>
+                    </Wrap>
+                ))
+            }
+            
             <Wrap>
                 <img src='/images/login-background.jpg'/>
             </Wrap>
@@ -55,7 +72,7 @@ const Content =styled.div`
 
 
 const Wrap=styled.div`
-
+    max-height:220px;
     border-radius:10px;
     cursor:pointer;
     overflow:hidden;
