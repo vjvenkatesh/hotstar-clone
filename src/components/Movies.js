@@ -30,7 +30,7 @@ function Movies() {
                 ))
             }
             
-            <Wrap>
+            {/* <Wrap>
                 <img src='/images/login-background.jpg'/>
             </Wrap>
             <Wrap>
@@ -50,7 +50,7 @@ function Movies() {
             </Wrap>
             <Wrap>
                 <img src='/images/login-background.jpg'/>
-            </Wrap>
+            </Wrap> */}
             
         </Content>
     </Container>
@@ -76,7 +76,8 @@ const Content =styled.div`
 
 
 const Wrap=styled.div`
-    max-height:220px;
+    // max-height:150px;
+    // max-width:230px;
     border-radius:10px;
     cursor:pointer;
     overflow:hidden;

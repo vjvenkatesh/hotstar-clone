@@ -1,15 +1,87 @@
-import React from 'react'
+import React, { useState ,useEffect} from 'react'
 import styled from 'styled-components'
+import { useParams } from 'react-router-dom'
+import db from "../firebase"
 
 function Details() {
+
+
+    const mymovie =[
+        {
+            "backgroundImg": "https://rukminim1.flixcart.com/image/416/416/jn3hocw0/poster/j/s/q/medium-hollywood-movie-wall-poster-pirates-of-the-caribbean-dead-original-imaf9uv7zzgp6wvg.jpeg?q=70",
+            "title": "Pirates of the Caribbean",
+            "description":"Pirates of the caribbean is one of the finest movie to wacth.. lots of advantures ... lot more entertainment movie ......",
+            "id": 1
+        },
+        {
+            "backgroundImg": "https://wallpapercave.com/dwp1x/wp2162760.jpg",
+            "title": "Ironman 3",
+            "id": 2
+        },
+        {
+            "backgroundImg": "https://wallpapercave.com/dwp1x/wp2162891.jpg",
+            "title": "Thor",
+            "id": 3
+        }
+    ]
+
+    const {id} = useParams();
+
+    const [movie,setMovie]=useState();
+
+
+    console.log(movie);
+    
+
+    useEffect(()=>{
+
+        mymovie.map((data)=>{
+            console.log(data);
+            if(data.id == id){
+                setMovie(data);
+                console.log("if block");
+                // break;
+            }
+            else{
+                console.log("else");
+            }
+        })
+        
+    //     db.collection("movies")
+    // .doc(id)
+    // .get()
+    // .then((doc)=>{
+    //     if(doc.exists){
+    //         setMovie(doc.data());
+    //     }
+    //     else{
+    //         //redirect to home page
+    //     }
+
+    // })
+
+
+    },[])
+
+
     return (
         <Container>
+            {movie && 
             <Background>
-                <img src='https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/4F39B7E16726ECF419DD7C49E011DD95099AA20A962B0B10AA1881A70661CE45/scale?width=1440&aspectRatio=1.78&format=jpeg' />
+                <img src={movie.backgroundImg} />
+            </Background>
+            }
+            {movie &&
+            <Imagetitle>
+            <img src={movie.backgroundImg}/>
+            </Imagetitle>
+            }
+            {/* <Background>
+                <img src={movie.backgroundImg} />
             </Background>
             <Imagetitle>
-                <img src='https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/D7AEE1F05D10FC37C873176AAA26F777FC1B71E7A6563F36C6B1B497CAB1CEC2/scale?width=1440&aspectRatio=1.78' />
-            </Imagetitle>
+                <img src={movie.title} />
+            </Imagetitle> */}
 
 
 
@@ -36,9 +108,11 @@ function Details() {
             <SubTitle>
                 2018 * 7m * Family, Fantasy, Kids, Animation
             </SubTitle>
+            {movie &&
             <Description>
-               Shi's mom helped out behind the scenes "Neiman-Cobb says, so Shi's own mother was enlisted to teach the artists how to make dumplings from scratch.
+             {movie.description}
             </Description>
+            }
         </Container>
     )
 }

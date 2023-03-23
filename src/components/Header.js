@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 function Header() {
@@ -36,7 +37,8 @@ function Header() {
             <span>SERIES</span>
 
             </a>
-
+            
+                
 
         </NavMenu>
         <UserImage src='/images/my.jpg'/>
