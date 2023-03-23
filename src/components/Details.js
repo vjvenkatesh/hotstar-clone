@@ -150,10 +150,15 @@ const Imagetitle = styled.div`
     min-width:200px;
     height:30vh;
     width:35vw;
+    border-radius:30px;
+    border:3px solid white;
     img{
+
+        border-radius:30px;
         width:100%;
         height:100%;
         object-fit:contain;
+        
     }
 `
 
