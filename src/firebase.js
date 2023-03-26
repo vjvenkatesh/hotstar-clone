@@ -6,12 +6,12 @@ import 'firebase/compat/storage';
 // import {getFirestore, collection,getDoc,doc,addDoc,setDoc,updateDoc} from 'firebase/firestore'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB4i2RNiIMfGQUlNFBNM9bheJ3ogaspZqs",
-  authDomain: "hotstar-clone-4c1f7.firebaseapp.com",
-  projectId: "hotstar-clone-4c1f7",
-  storageBucket: "hotstar-clone-4c1f7.appspot.com",
-  messagingSenderId: "79577352849",
-  appId: "1:79577352849:web:1d099e58afd6cd397f0d30"
+  apiKey: "AIzaSyCapTSmg7SblyGPScOAPEmIP7fC5qXQ0xI",
+  authDomain: "my-first-35dc7.firebaseapp.com",
+  projectId: "my-first-35dc7",
+  storageBucket: "my-first-35dc7.appspot.com",
+  messagingSenderId: "155673630117",
+  appId: "1:155673630117:web:028724c1b01c1d2e15444c"
 };
 
 

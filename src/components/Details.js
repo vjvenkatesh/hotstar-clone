@@ -1,4 +1,4 @@
-import React, { useState ,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
 import db from "../firebase"
@@ -6,112 +6,117 @@ import db from "../firebase"
 function Details() {
 
 
-    const mymovie =[
+    const mymovie = [
         {
             "backgroundImg": "https://rukminim1.flixcart.com/image/416/416/jn3hocw0/poster/j/s/q/medium-hollywood-movie-wall-poster-pirates-of-the-caribbean-dead-original-imaf9uv7zzgp6wvg.jpeg?q=70",
-            "title": "Pirates of the Caribbean",
-            "description":"Pirates of the caribbean is one of the finest movie to wacth.. lots of advantures ... lot more entertainment movie ......",
-            "id": 1
+            "title": "/images/poc.png",
+            "description": "Pirates of the caribbean is one of the finest movie to wacth.. lots of advantures ... lot more entertainment movie ......",
+            "id": 1,
+            "subtitle": "2018 * 7m * Family, Fantasy, Kids, Animation",
         },
         {
             "backgroundImg": "https://wallpapercave.com/dwp1x/wp2162760.jpg",
-            "title": "Ironman 3",
-            "id": 2
+            "title": "/images/im3.png",
+            "description": "ironman -3 of the caribbean is one of the finest movie to wacth.. lots of advantures ... lot more entertainment movie ......",
+            "id": 2,
+            "subtitle": "2017 * 7m * Family, Fantasy, Kids, Animation, science, experiment, sky, travel",
         },
         {
             "backgroundImg": "https://wallpapercave.com/dwp1x/wp2162891.jpg",
-            "title": "Thor",
-            "id": 3
+            "title": "/images/thor.png",
+            "description": "Thor is one of the finest movie to wacth.. lots of advantures ... lot more entertainment movie ......",
+            "id": 3,
+            "subtitle": "2017 * 7m * Family, Fantasy, Kids, Animation, science, experiment, sky, travel , new world",
         }
     ]
 
-    const {id} = useParams();
+    const { id } = useParams();
 
-    const [movie,setMovie]=useState();
+    const [movie, setMovie] = useState();
 
 
     console.log(movie);
-    
 
-    useEffect(()=>{
 
-        mymovie.map((data)=>{
+    useEffect(() => {
+
+        mymovie.map((data) => {
             console.log(data);
-            if(data.id == id){
+            if (data.id == id) {
                 setMovie(data);
                 console.log("if block");
                 // break;
             }
-            else{
+            else {
                 console.log("else");
             }
         })
-        
-    //     db.collection("movies")
-    // .doc(id)
-    // .get()
-    // .then((doc)=>{
-    //     if(doc.exists){
-    //         setMovie(doc.data());
-    //     }
-    //     else{
-    //         //redirect to home page
-    //     }
 
-    // })
+        //     db.collection("movies")
+        // .doc(id)
+        // .get()
+        // .then((doc)=>{
+        //     if(doc.exists){
+        //         setMovie(doc.data());
+        //     }
+        //     else{
+        //         //redirect to home page
+        //     }
+
+        // })
 
 
-    },[])
+    }, [])
 
 
     return (
         <Container>
-            {movie && 
-            <Background>
-                <img src={movie.backgroundImg} />
-            </Background>
-            }
-            {movie &&
-            <Imagetitle>
-            <img src={movie.backgroundImg}/>
-            </Imagetitle>
-            }
-            {/* <Background>
-                <img src={movie.backgroundImg} />
-            </Background>
-            <Imagetitle>
-                <img src={movie.title} />
-            </Imagetitle> */}
+            { movie &&
+                <>
+                        <Background>
+                            <img src={movie.backgroundImg} />
+                        </Background>
+                        <Imagetitle>
+                            <img src={movie.title} />
+                        </Imagetitle>
+                        {/* <Background>
+                         <img src={movie.backgroundImg} />
+                            </Background>
+                        <Imagetitle>
+                        <img src={movie.title} />
+                        </Imagetitle> */}
 
 
 
-            <Controls>
-                <PlayButton>
-                    <img src='/images/play-icon-black.png' />
-                    <span >PLAY</span>
-                </PlayButton>
-                <TrailerButton>
-                    <img src='/images/play-icon-white.png' />
-                    <span >TRAILER</span>
-                </TrailerButton>
-                <AddButton>
-                    <span>+</span>
+                        <Controls>
+                            <PlayButton>
+                                <img src='/images/play-icon-black.png' />
+                                <span >PLAY</span>
+                            </PlayButton>
+                            <TrailerButton>
+                                <img src='/images/play-icon-white.png' />
+                                <span >TRAILER</span>
+                            </TrailerButton>
+                            <AddButton>
+                                <span>+</span>
 
-                </AddButton>
-                <GroupWatchButton>
-                    
-                    <img src='/images/group-icon.png'/>
+                            </AddButton>
+                            <GroupWatchButton>
 
-                </GroupWatchButton>
+                                <img src='/images/group-icon.png' />
 
-            </Controls>
-            <SubTitle>
-                2018 * 7m * Family, Fantasy, Kids, Animation
-            </SubTitle>
-            {movie &&
-            <Description>
-             {movie.description}
-            </Description>
+                            </GroupWatchButton>
+
+                        </Controls>
+                            <SubTitle>
+
+                                {movie.subtitle}
+                            </SubTitle>
+
+                            <Description>
+                                {movie.description}
+                            </Description>
+                </>
             }
         </Container>
     )
@@ -150,11 +155,11 @@ const Imagetitle = styled.div`
     min-width:200px;
     height:30vh;
     width:35vw;
-    border-radius:30px;
-    border:3px solid white;
+    // border-radius:30px;
+    // border:3px solid white;
     img{
 
-        border-radius:30px;
+        // border-radius:30px;
         width:100%;
         height:100%;
         object-fit:contain;
@@ -223,14 +228,14 @@ const GroupWatchButton = styled(AddButton)`
 
 
 
-const SubTitle =styled.div`
+const SubTitle = styled.div`
 color:rgb(249, 249, 249);
 font-size:15px;
 min-height: 20px;
 margin-top:26px;
 
 `
-const Description = styled.div  `
+const Description = styled.div`
     line-height : 1.4;
     font-size:20px;
     margin-top:16px;
